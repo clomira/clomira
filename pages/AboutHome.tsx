@@ -13,7 +13,7 @@ function AboutHome() {
           />
         </div>
         <div className="flex flex-col justify-center w-1/2 font-serif pl-6">
-          <div className="text-base">
+          <div className="text-lg">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et omnis
             nostrum officia explicabo iusto aliquam iure consectetur praesentium
             modi, nam quaerat expedita cupiditate necessitatibus ipsa dolorum
