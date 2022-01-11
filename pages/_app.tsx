@@ -6,15 +6,32 @@ import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import {ReactNode} from 'react'
+import { NextPage } from "next";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <div>
-      <NavBar />
-      <Component {...pageProps} />
-      <Footer />
-    </div>
-  )
+type Page<P = {}> = NextPage<P> & {
+  getLayout?: (page: ReactNode) => ReactNode;
+};
+
+type Props = AppProps & {
+  Component: Page;
+};
+
+function MyApp({ Component, pageProps }: Props) {
+
+  const getLayout = Component.getLayout ?? ((page: ReactNode) => page);
+
+  if(Component.getLayout) {
+    return Component.getLayout(<Component {...pageProps} />)
+  } else {
+    return (
+      <div>
+        <NavBar />
+        <Component {...pageProps} />
+        <Footer />
+      </div>
+    )
+  }
 }
 
 export default MyApp

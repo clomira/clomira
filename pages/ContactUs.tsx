@@ -37,7 +37,7 @@ function ContactUs() {
           </div>
         </div>
         <div className="ml-20 mt-2">
-          <button className="w-72 h-10 bg-blue-600 text-white rounded-md ml-1">
+          <button className="w-72 h-10 bg-blue-600 text-white rounded-md ml-1 hover:bg-slate-200 hover:text-blue-700">
             Submit
           </button>
         </div>
