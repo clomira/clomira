@@ -1,6 +1,6 @@
-import AboutHome from "./AboutHome";
-import WorkHome from "./WorkHome";
-import ContactUs from "./ContactUs";
+import AboutHome from "../components/HomePage/AboutHome";
+import WorkHome from "../components/HomePage/WorkHome";
+import ContactUs from "../components/HomePage/ContactUs";
 function Home() {
   return (
     <div>
