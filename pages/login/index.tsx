@@ -1,25 +1,18 @@
 import Image from "next/image";
 import { ReactNode } from "react";
+import Link from "next/link";
 
-
-declare global {
-  namespace JSX {
-      interface IntrinsicElements {
-          span: { children: string; className: string; }
-      }
-  }
-}
 function login() {
   return (
     <div className="h-screen w-screen overflow-hidden bg-zinc-100">
       <div className="grid grid-cols-2 h-3/4 w-2/3 rounded-2xl mt-24 mx-auto bg-white pt-10">
         <div className="pt-20 pl-32">
           <Image src="/login.jpg" height="300px" width="300px" />
-          <div className="pl-2 mt-10 text-sm">
-            Not a member yet?
-            <span className="underline cursor-pointer pl-2" >
-              Create Account
-            </span>
+          <div className="pl-2 mt-10 text-sm flex ">
+            <div>Not a member yet?</div>
+            <div className="underline cursor-pointer pl-2">
+              <Link href="/signup"> Create Account</Link>
+            </div>
           </div>
         </div>
         <div className="pl-8 pt-12">

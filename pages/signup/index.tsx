@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ReactNode } from "react";
+import Link from "next/link";
 
 function signup() {
   return (
@@ -41,9 +42,11 @@ function signup() {
           </div>
           <div className="flex mt-7">
             <input type="checkbox" />
-            <div className="text-sm pl-3">
-              I agree all statements in{" "}
-              <span className="underline cursor-pointer">Terms of service</span>
+            <div className="text-sm pl-3 flex">
+              <div>I agree all statements in</div>
+              <div className="underline cursor-pointer pl-2">
+                Terms of service
+              </div>
             </div>
           </div>
           <div>
@@ -54,9 +57,11 @@ function signup() {
         </div>
         <div className="pt-20 pl-20">
           <Image src="/signup.jpg" height="300px" width="300px" />
-          <div className="pl-10 mt-10 text-sm">
-            Already a member?{" "}
-            <span className="underline cursor-pointer">Login</span>
+          <div className="pl-10 mt-10 text-sm flex">
+            <div>Already a member?</div>
+            <div className="underline cursor-pointer pl-2">
+              <Link href="/login"> Login</Link>
+            </div>
           </div>
         </div>
       </div>
