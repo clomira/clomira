@@ -28,8 +28,8 @@ const err = () => {
     )
 }
 
-export default err
+export default err;
 
 err.getLayout = function PageLayout(page: ReactNode) {
-    return <div>{page}</div>;
+  return <div>{page}</div>;
 };
