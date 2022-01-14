@@ -4,11 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-type formDetailsProps = {
-  types: string;
-  value: string;
-};
-
 function signup() {
   const [userName, setUserName] = useState("");
   const [userPass, setUserPass] = useState("");
