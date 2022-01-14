@@ -1,6 +1,14 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 
+
+declare global {
+  namespace JSX {
+      interface IntrinsicElements {
+          span: { children: string; className: string; }
+      }
+  }
+}
 function login() {
   return (
     <div className="h-screen w-screen overflow-hidden bg-zinc-100">
@@ -9,7 +17,7 @@ function login() {
           <Image src="/login.jpg" height="300px" width="300px" />
           <div className="pl-2 mt-10 text-sm">
             Not a member yet?
-            <span className="underline cursor-pointer pl-2">
+            <span className="underline cursor-pointer pl-2" >
               Create Account
             </span>
           </div>
