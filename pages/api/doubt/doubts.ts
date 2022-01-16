@@ -7,10 +7,12 @@ export default async function Users(req:NextApiRequest, res:NextApiResponse) {
     if (req.method === 'POST') {
         const client = await clientPromise
         const db = client.db("clomira")
-        const data = await db.collection("users").find({user_email:req.body._userEmail,user_pass:req.body._userPass}).toArray()
-        
-        const response = JSON.parse(JSON.stringify(data))
-        res.json(response)
+        const data = await db.collection("doubts").insertOne({
+           title: req.body.title,
+            body: req.body.body,
+            tags:req.body.tags
+        })
+        res.json({ doubtPosted: req.body })
 
     } else {
         res.json({message:"This request is not allowed",user:false})
