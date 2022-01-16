@@ -12,57 +12,45 @@ function NavBar() {
                 src="/clomira_logo.jpg"
                 alt="Clomira Logo"
                 className="h-10 w-30"
-                height="30px"
-                width="50px"
+                height="40px"
+                width="80px"
               />
             </div>
             <div className="hidden sm:flex sm:items-center">
               <Link href="/" passHref>
-                <div
-                  className="text-gray-800 text-sm font-semibold
-              hover:text-purple-600 mr-4"
-                >
+                <div className="text-gray-800 text-sm font-semibold hover:text-purple-600 cursor-pointer mr-4">
                   Home
                 </div>
               </Link>
               <Link href="/doubts" passHref>
-                <div
-                  className="text-gray-800 text-sm font-semibold
-              hover:text-purple-600 mr-4"
-                >
+                <div className="text-gray-800 text-sm font-semibold hover:text-purple-600 cursor-pointer mr-4">
                   Doubts
                 </div>
               </Link>
               <Link href="/study_material" passHref>
-                <div
-                  className="text-gray-800 text-sm font-semibold
-              hover:text-purple-600 mr-4"
-                >
+                <div className="text-gray-800 text-sm font-semibold hover:text-purple-600 cursor-pointer mr-4">
                   Study Material
                 </div>
               </Link>
               <Link href="/" passHref>
-                <div
-                  className="text-gray-800 text-sm font-semibold
-              hover:text-purple-600 mr-4"
-                >
+                <div className="text-gray-800 text-sm font-semibold hover:text-purple-600 cursor-pointer mr-4">
                   College Guide
                 </div>
               </Link>
             </div>
             <div className="hidden sm:flex sm:items-center">
               <Link href="/login" passHref>
-                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">
+                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
                   LogIn
                 </div>
               </Link>
               <Link href="/signup" passHref>
-                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">
+                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
                   SignUp
                 </div>
               </Link>
               <Link href="/profile" passHref>
-                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">
+                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
                   {" "}
                   Profile
                 </div>

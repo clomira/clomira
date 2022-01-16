@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const index = () => {
   return (
     <div>
@@ -5,10 +7,12 @@ const index = () => {
         <div className="p-0 bg-white shadow mt-10">
           <div className="">
             <div className="rounded-full  flex items-center justify-center mx-auto  text-indigo-500">
-              <img
-                src="https://i.pinimg.com/564x/4c/74/9e/4c749ee6db2de8fb2dd9c7751ecd77fa.jpg"
+              <Image
+                src="/login.jpg"
                 className="h-60 shadow w-70 rounded-lg"
                 alt=""
+                height="200px"
+                width="300px"
               />
             </div>
             <div className="space-x-8 flex  mt-3  justify-center">
