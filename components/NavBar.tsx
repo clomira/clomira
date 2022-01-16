@@ -7,15 +7,17 @@ function NavBar() {
       <div className="bg-white shadow">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-2">
-            <div>
-              <Image
-                src="/clomira_logo.jpg"
-                alt="Clomira Logo"
-                className="h-10 w-30"
-                height="40px"
-                width="80px"
-              />
-            </div>
+            <Link href="/" passHref>
+              <div>
+                <Image
+                  src="/clomira_logo.jpg"
+                  alt="Clomira Logo"
+                  className="h-10 w-30"
+                  height="40px"
+                  width="80px"
+                />
+              </div>
+            </Link>
             <div className="hidden sm:flex sm:items-center">
               <Link href="/" passHref>
                 <div className="text-gray-800 text-sm font-semibold hover:text-purple-600 cursor-pointer mr-4">
@@ -32,7 +34,7 @@ function NavBar() {
                   Study Material
                 </div>
               </Link>
-              <Link href="/" passHref>
+              <Link href="/college" passHref>
                 <div className="text-gray-800 text-sm font-semibold hover:text-purple-600 cursor-pointer mr-4">
                   College Guide
                 </div>
