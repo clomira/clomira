@@ -21,6 +21,7 @@ function NavBar() {
             <div className="hidden sm:flex sm:items-center">
               <a href="/login" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">LogIn</a>
               <a href="/signup" className="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">SignUp</a>
+              <a href="/profile" className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Profile</a>
             </div>
           </div>
 
@@ -33,6 +34,7 @@ function NavBar() {
               <div className="flex justify-between items-center border-t-2 pt-2">
                 <a href="/login" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">LogIn</a>
                 <a href="/signup" className="text-gray-800 text-sm font-semibold border px-4 py-1 rounded-lg hover:text-purple-600 hover:border-purple-600">SignUp</a>
+                <a href="/profile" className="text-gray-800 ml-1 text-sm font-semibold border px-4 py-1 rounded-lg hover:text-purple-600 hover:border-purple-600">Profile</a>
               </div>
             </div>
           </div>
