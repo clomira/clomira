@@ -59,7 +59,8 @@ function AboutHome() {
         </div>
       </div>
     </div>
-  );
+  )
+
 }
 
 export default AboutHome;
