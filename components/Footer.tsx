@@ -20,7 +20,7 @@ function Footer() {
             </div>
             <div className="px-5 py-2">
               <a
-                href="/Doubts"
+                href="/faq"
                 className="text-base leading-6 text-black hover:text-gray-900"
               >
                 Doubts

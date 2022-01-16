@@ -2,7 +2,7 @@ const Doubts = () => {
   return (
     <div className="mt-10">
       <div className="containter mb-10 flex justify-content align-center flex-wrap mx-auto px-10">
-        <div className="w-4/12 mr-2 mb-20  bg-white shadow rounded border border-transparent hover:border-blue-200 ">
+        <div className="w-3/12 mr-2 mb-20  bg-white shadow rounded border border-transparent hover:border-blue-200 ">
           <div className=" w-full checker-bg flex items-center justify-center p-4 ">
             <div
               className="w-32 h-32 bg-gray-100 rounded-full bg-cover bg-center"
@@ -14,17 +14,18 @@ const Doubts = () => {
           </div>
           <div className="p-4 border-t border-gray-200">
             <div className="flex items-center justify-between">
-              <h1 className="text-gray-600 font-medium">Sahib Singh</h1>
+              <h1 className="text-gray-600 mx-auto font-medium">Sahib Singh</h1>
               <button className="text-gray-500 hover:text-gray-900"></button>
             </div>
-            <p className="text-gray-400 text-sm my-1">2nd year student</p>
+            <p className="text-gray-400 text-center text-sm my-1">2nd year student</p>
           </div>
         </div>
 
-        <div className="bg-white w-7/12 p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">
+        <div className="bg-white ml-2 w-8/12 p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">
           <h1 className="text-2xl text-gray-800 font-semibold mb-3">
             How much should we study?
           </h1>
+
           <p className="text-gray-600 leading-6 tracking-normal">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
             itaque debitis saepe, eaque similique quo doloribus ducimus ex
@@ -54,18 +55,34 @@ const Doubts = () => {
             praesentium quas nulla doloribus at error amet ipsam. doloremque
             eius.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap justify-content align-center">
             <a
               href="/"
-              className="py-2 px-4 mt-8 bg-indigo-600 text-white rounded-md shadow-xl"
+              className="py-2 w-2/10 px-4 mt-7 mr-3 bg-indigo-600 text-white rounded-md shadow-xl"
             >
               Go back
             </a>
-          </div>
-          <div>
-            <span className="absolute py-2 px-8 text-sm text-white top-3 right-0 bg-indigo-600 rounded-md transform translate-x-2 -translate-y-3 shadow-xl">
-              Votes
-            </span>
+
+            <div className=" py-2 ml-4 justify-self-end w-2/10 px-4 flex flex-row h-13 rounded-lg bg-transparent mt-5">
+              <button
+                data-action="decrement"
+                className=" bg-indigo-600 text-white hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-l cursor-pointer outline-none"
+              >
+                <span className="m-auto text-2xl font-thin">−</span>
+              </button>
+              <input
+                type="number"
+                className=" focus:outline-none text-center w-1/6 bg-indigo-600 font-semibold text-md hover:text-white focus:text-white  md:text-basecursor-default flex items-center text-white  outline-none"
+                name="custom-input-number"
+                defaultValue={0}
+              />
+              <button
+                data-action="increment"
+                className="bg-indigo-600 text-white hover:text-indigo-700 hover:bg-gray-400 h-full w-10 rounded-r cursor-pointer"
+              >
+                <span className="m-auto text-2xl font-thin">+</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

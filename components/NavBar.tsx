@@ -13,7 +13,7 @@ function NavBar() {
 
             <div className="hidden sm:flex sm:items-center">
               <a href="/" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Home</a>
-              <a href="/Doubts" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Doubts</a>
+              <a href="/faq" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Doubts</a>
               <a href="/study_material" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Study Material</a>
               <a href="/" className="text-gray-800 text-sm font-semibold hover:text-purple-600">College Guide</a>
             </div>
@@ -27,7 +27,7 @@ function NavBar() {
           <div className="block sm:hidden bg-white border-t-2 py-2">
             <div className="flex flex-col">
               <a href="/" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mb-1">Products</a>
-              <a href="Doubts" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mb-1">Marketplace</a>
+              <a href="/faq" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mb-1">Marketplace</a>
               <a href="/study_material" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mb-1">Partners</a>
               <a href="/" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mb-1">Pricing</a>
               <div className="flex justify-between items-center border-t-2 pt-2">
