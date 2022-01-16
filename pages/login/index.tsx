@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 function login() {
   const [userEmail, setUserEmail] = useState("");
@@ -29,6 +30,9 @@ function login() {
 
   return (
     <div className="h-screen w-screen overflow-hidden bg-zinc-100">
+      <Head>
+        <title>Clomira | Login</title>
+      </Head>
       <div className="grid grid-cols-2 h-3/4 w-2/3 rounded-2xl mt-24 mx-auto bg-white pt-10">
         <div className="pt-20 pl-32">
           <Image src="/login.jpg" height="300px" width="300px" />

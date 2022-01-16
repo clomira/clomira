@@ -1,8 +1,12 @@
 import Subject from "../../components/StudyMaterialPage/Subject";
+import Head from "next/head";
 
 function StudyMaterialPage() {
   return (
     <div className="flex mt-10 ">
+      <Head>
+        <title>Clomira | Study Material</title>
+      </Head>
       <div className="flex flex-col ml-8 mr-10 pl-10">
         <div className="border-2 px-10 py-4 rounded-lg mt-2 hover:bg-zinc-100 cursor-pointer">
           <i className="fas fa-book-reader mr-5"></i>Notes

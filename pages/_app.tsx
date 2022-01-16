@@ -25,11 +25,11 @@ function MyApp({ Component, pageProps }: Props) {
     return Component.getLayout(<Component {...pageProps} />)
   } else {
     return (
-      <div>
+      <>
         <NavBar />
         <Component {...pageProps} />
         <Footer />
-      </div>
+      </>
     )
   }
 }
