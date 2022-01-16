@@ -1,6 +1,15 @@
+import { GetStaticProps } from "next";
 import Link from "next/link";
 
-const Doubts = () => {
+type doubtProps = {
+  data: {
+    title: string;
+    body: string;
+  }[];
+};
+
+const Doubts = (props: doubtProps) => {
+  const { data } = props;
   return (
     <div>
       <section className="relative py-8 bg-white min-w-screen animation-fade animation-delay">
@@ -30,51 +39,18 @@ const Doubts = () => {
               </button>
             </Link>
           </div>
-
-          <div className="w-1/1 px-0 py-6 mx-auto mt-10 cursor-pointer hover:shadow-lg bg-white border border-gray-200 sm:px-8  sm:rounded-lg sm:shadow ">
-            <h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">
-              How much hours should we study?
-            </h3>
-            <p className="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-              quasi Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Possimus, eligendi? earum facilis incidunt? Natus iste atque in
-              inventore commodi ex.
-            </p>
-          </div>
-          <div className="w-1/1 px-0 py-6 mx-auto mt-10 cursor-pointer hover:shadow-lg bg-white border border-gray-200 sm:px-8  sm:rounded-lg sm:shadow ">
-            <h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">
-              Should we focus on DSA or Development?
-            </h3>
-            <p className="mt-2  text-base text-gray-600 sm:text-lg md:text-normal">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-              pariatur unde Lorem ipsum, dolor sit amet consectetur adipisicing
-              elit. Omnis obcaecati voluptatum, error atque laudantium nisi?
-              repellat praesentium aliquid suscipit quam nostrum non fugiat.
-              Esse.
-            </p>
-          </div>
-          <div className="w-1/1 px-0 py-6 mx-auto mt-10 cursor-pointer hover:shadow-lg bg-white border border-gray-200 sm:px-8  sm:rounded-lg sm:shadow ">
-            <h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">
-              How much CGPA is good for placement and internship?
-            </h3>
-            <p className="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              quisquam consequatur, expedita cupiditate mollitia repudiandae
-              laborum obcaecati neque beatae facere recusandae odit optio libero
-              rem aliquam dicta asperiores doloremque iusto.
-            </p>
-          </div>
-          <div className="w-1/1 px-0 py-6 mx-auto mt-10 cursor-pointer hover:shadow-lg bg-white border border-gray-200 sm:px-8  sm:rounded-lg sm:shadow ">
-            <h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">
-              Whta are important websites for self-study?
-            </h3>
-            <p className="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-              ipsum sed veritatis itaque enim! Lorem ipsum dolor, sit amet
-              consectetur adipisicing elit. Minus, iusto.
-            </p>
-          </div>
+          {data.map((doubt) => {
+            return (
+              <div className="w-1/1 px-0 py-6 mx-auto mt-10 cursor-pointer hover:shadow-lg bg-white border border-gray-200 sm:px-8  sm:rounded-lg sm:shadow ">
+                <h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">
+                  {doubt.title}
+                </h3>
+                <p className="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
+                  {doubt.body}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>
@@ -82,3 +58,13 @@ const Doubts = () => {
 };
 
 export default Doubts;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await fetch("http://localhost:3000/api/doubt/top-doubts");
+  const data = await response.json();
+
+  console.log(data);
+  return {
+    props: { data },
+  };
+};
