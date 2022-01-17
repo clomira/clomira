@@ -24,7 +24,7 @@ function NavBar() {
                   Home
                 </div>
               </Link>
-              <Link href="/doubts" passHref>
+              <Link href="/doubt" passHref>
                 <div className="text-gray-800 text-sm font-semibold hover:text-purple-600 cursor-pointer mr-4">
                   Doubts
                 </div>

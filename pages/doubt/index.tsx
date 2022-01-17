@@ -63,11 +63,15 @@ const Doubts = (props: doubtProps) => {
 export default Doubts;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch("http://localhost:3000/api/doubt/top-doubts");
-  const data = await response.json();
-
-  console.log(data);
+  let data = [];
+  let error = "";
+  try {
+    const response = await fetch("http://localhost:3000/api/doubt/topdoubts");
+    data = await response.json();
+  } catch {
+    error = "Error occured";
+  }
   return {
-    props: { data },
+    props: { data, error },
   };
 };
