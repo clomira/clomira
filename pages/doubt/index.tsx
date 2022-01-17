@@ -33,7 +33,7 @@ const Doubts = (props: doubtProps) => {
             <h5 className="  mt-1 w-10/12  font-bold text-center text-gray-800 sm:text-3xl sm:text-center sm:mx-0">
               Frequently Asked Questions
             </h5>
-            <Link href="/doubts/ask" passHref>
+            <Link href="/doubt/ask" passHref>
               <button className="bg-blue-500 w-2/12 justify-self-end text-xs hover:bg-blue-400 transition-colors rounded-[8px] px-[15px] py-[4px] text-white focus:ring-2 ring-blue-500">
                 Ask A Question
               </button>
