@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Doubt = () => {
   return (
     <div className="mt-10">
@@ -75,10 +77,12 @@ const Doubt = () => {
           </h3>
           <div className="flex-col w-full py-4 mx-auto bg-white px-20 border-r-2 border-gray-200 sm:px-4 sm:py-4 md:px-4 sm:rounded-lg sm:shadow-sm md:w-2/3">
             <div className="flex flex-row">
-              <img
-                className="object-cover w-12 h-12 border-2 border-gray-300 rounded-full"
+              <Image
                 alt="Noob master's avatar"
                 src="/cmnt.webp"
+                height="18px"
+                width="90px"
+                className="object-cover border-2 border-gray-300 rounded-full"
               />
               <div className="flex-col mt-1">
                 <div className="flex items-center flex-1 px-4 font-bold leading-tight">
@@ -106,10 +110,12 @@ const Doubt = () => {
 
             <hr className="my-2 ml-16 border-gray-200" />
             <div className="flex flex-row pt-1 md-10 md:ml-16">
-              <img
-                className="w-12 h-12 border-2 border-gray-300 rounded-full"
+              <Image
+                className="border-2 border-gray-300 rounded-full"
                 alt="Emily's avatar"
                 src="/cmnt.webp"
+                height="18px"
+                width="90px"
               />
               <div className="flex-col mt-1">
                 <div className="flex items-center flex-1 px-4 font-bold leading-tight">

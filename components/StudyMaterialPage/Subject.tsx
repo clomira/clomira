@@ -21,7 +21,7 @@ function Subject(props: propType) {
         setFileIcon("fas fa-folder text-green-500 fa-lg");
       }
     }
-  }, [fileIcon]);
+  }, [props.fileType]);
 
   return (
     <div className="flex mt-2 pt-2 border-b-2 pb-2">

@@ -43,7 +43,12 @@ function ContactUs() {
         </div>
       </div>
       <div>
-        <Image src="/contact_us.jpg" height="650px" width="650px" />
+        <Image
+          src="/contact_us.jpg"
+          height="650px"
+          width="650px"
+          alt="A Person holding a pencil"
+        />
       </div>
     </div>
   );

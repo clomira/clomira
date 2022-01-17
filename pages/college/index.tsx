@@ -25,7 +25,12 @@ const index = () => {
             </Link>
           </div>
           <div className="sm:w-3/5">
-            <Image src="/college_guide.png" height="600px" width="600px" />
+            <Image
+              src="/college_guide.png"
+              height="600px"
+              width="600px"
+              alt="A group of person sitting and discussing"
+            />
           </div>
         </div>
       </main>

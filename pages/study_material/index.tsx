@@ -12,7 +12,7 @@ function StudyMaterialPage() {
           <i className="fas fa-book-reader mr-5"></i>Notes
         </div>
         <div className="border-2 px-10 py-4 rounded-lg mt-2 hover:bg-zinc-100 cursor-pointer">
-          <i className="fab fa-pied-piper-alt mr-5"></i>Previous Year Q's
+          <i className="fab fa-pied-piper-alt mr-5"></i>Previous Year Q&apos;s
         </div>
         <div className="border-2 px-10 py-4 rounded-lg mt-2 hover:bg-zinc-100 cursor-pointer">
           <i className="far fa-star mr-5"></i>Recent

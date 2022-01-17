@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const index = () => {
+const Profile = () => {
   return (
     <div>
       <div className="p-10">
@@ -45,7 +45,7 @@ const index = () => {
               maintain websites. Web developers often work for clients who are
               trying to get their product or service onto the web. The work is
               typically very project focused and involves collaborating with a
-              team that helps to coordinate the client's needs into the end
+              team that helps to coordinate the client&apos;s needs into the end
               product.
             </p>
           </div>
@@ -55,4 +55,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Profile;

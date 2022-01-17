@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-function signup() {
+function Signup() {
   const [userName, setUserName] = useState("");
   const [userPass, setUserPass] = useState("");
   const [userPass2, setUserPass2] = useState("");
@@ -97,7 +97,7 @@ function signup() {
             ""
           ) : (
             <div className="text-red-500 text-sm pt-1">
-              Password doesn't match
+              Password doesn&apos;t match
             </div>
           )}
           <div className="flex mt-7">
@@ -136,7 +136,12 @@ function signup() {
           </div>
         </div>
         <div className="pt-20 pl-20">
-          <Image src="/signup.jpg" height="300px" width="300px" />
+          <Image
+            src="/signup.jpg"
+            height="300px"
+            width="300px"
+            alt="A Person sitting on chair"
+          />
           <div className="pl-10 mt-10 text-sm flex">
             <div>Already a member?</div>
             <div className="underline cursor-pointer pl-2">
@@ -149,8 +154,8 @@ function signup() {
   );
 }
 
-export default signup;
+export default Signup;
 
-signup.getLayout = function PageLayout(page: ReactNode) {
+Signup.getLayout = function PageLayout(page: ReactNode) {
   return <div>{page}</div>;
 };

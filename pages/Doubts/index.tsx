@@ -33,7 +33,7 @@ const Doubts = (props: doubtProps) => {
             <h5 className="  mt-1 w-10/12  font-bold text-center text-gray-800 sm:text-3xl sm:text-center sm:mx-0">
               Frequently Asked Questions
             </h5>
-            <Link href="/doubts/ask">
+            <Link href="/doubts/ask" passHref>
               <button className="bg-blue-500 w-2/12 justify-self-end text-xs hover:bg-blue-400 transition-colors rounded-[8px] px-[15px] py-[4px] text-white focus:ring-2 ring-blue-500">
                 Ask A Question
               </button>
@@ -41,7 +41,10 @@ const Doubts = (props: doubtProps) => {
           </div>
           {data.map((doubt) => {
             return (
-              <div className="w-1/1 px-0 py-6 mx-auto mt-10 cursor-pointer hover:shadow-lg bg-white border border-gray-200 sm:px-8  sm:rounded-lg sm:shadow ">
+              <div
+                className="w-1/1 px-0 py-6 mx-auto mt-10 cursor-pointer hover:shadow-lg bg-white border border-gray-200 sm:px-8  sm:rounded-lg sm:shadow "
+                key={doubt.title}
+              >
                 <h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">
                   {doubt.title}
                 </h3>

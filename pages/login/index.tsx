@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-function login() {
+function Login() {
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
   const [clickSubmit, setClickSubmit] = useState(false);
@@ -34,7 +34,12 @@ function login() {
       </Head>
       <div className="grid grid-cols-2 h-3/4 w-2/3 rounded-2xl mt-24 mx-auto bg-white pt-10">
         <div className="pt-20 pl-32">
-          <Image src="/login.jpg" height="300px" width="300px" />
+          <Image
+            src="/login.jpg"
+            height="300px"
+            width="300px"
+            alt="A Person sitting"
+          />
           <div className="pl-2 mt-10 text-sm flex ">
             <div>Not a member yet?</div>
             <div className="underline cursor-pointer pl-2">
@@ -70,7 +75,7 @@ function login() {
           </div>
           {clickSubmit ? (
             <div className="text-red-500 text-sm pt-4">
-              Email / Password doesn't match
+              Email / Password doesn&apos;t match
             </div>
           ) : (
             ""
@@ -93,8 +98,8 @@ function login() {
   );
 }
 
-export default login;
+export default Login;
 
-login.getLayout = function PageLayout(page: ReactNode) {
+Login.getLayout = function PageLayout(page: ReactNode) {
   return <div>{page}</div>;
 };
