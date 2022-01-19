@@ -30,7 +30,7 @@ function AskDoubt() {
     });
     const data = await response.json();
     if (data.doubtPosted) {
-      route.push("/doubts");
+      route.push("/doubt");
     }
   };
 

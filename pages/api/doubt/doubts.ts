@@ -12,6 +12,7 @@ export default async function Users(req:NextApiRequest, res:NextApiResponse) {
             body: req.body.body,
             tags:req.body.tags
         })
+        console.log("Doubt Posted")
         res.json({ doubtPosted: req.body })
 
     } else {

@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Link from "next/link";
 
 type doubtProps = {
@@ -60,9 +60,7 @@ const Doubts = (props: doubtProps) => {
   );
 };
 
-export default Doubts;
-
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   let data = [];
   let error = "";
   try {
@@ -73,6 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
   return {
     props: { data, error },
-    revalidate: 5,
   };
 };
+
+export default Doubts;
