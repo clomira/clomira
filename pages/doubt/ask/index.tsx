@@ -17,23 +17,6 @@ function AskDoubt() {
   const [title, setTitle] = useState("");
 
   const route = useRouter();
-
-  const postDoubt = async () => {
-    const response = await fetch("/api/doubt/doubts", {
-      method: "POST",
-      body: JSON.stringify({
-        title: title,
-        body: editorState.getCurrentContent().getPlainText(),
-        tags: selected,
-      }),
-      headers: { "Content-type": "application/json" },
-    });
-    const data = await response.json();
-    if (data.doubtPosted) {
-      route.push("/doubt");
-    }
-  };
-
   return (
     <div className="bg-gray-50">
       <div className="w-8/12 m-auto pt-10 pb-10">
@@ -53,8 +36,7 @@ function AskDoubt() {
                 className="w-full border border-gray-300 rounded-lg pl-4 text-sm font-light h-10 focus:outline-none"
                 value={title}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setTitle(e.target.value)
-                }
+                  setTitle(e.target.value)}
               />
             </div>
           </div>
@@ -89,10 +71,7 @@ function AskDoubt() {
             </div>
           </div>
           <div className="flex flex-row-reverse mr-5">
-            <button
-              className="px-6 py-3 hover:bg-blue-400 bg-blue-200 rounded-lg"
-              onClick={postDoubt}
-            >
+            <button className="px-6 py-3 hover:bg-blue-400 bg-blue-200 rounded-lg">
               Post Doubt
             </button>
           </div>

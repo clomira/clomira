@@ -3,30 +3,21 @@ import React, { useState, ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
+// import firebase from "firebase/compat/app";
+// import "firebase/compat/auth";
+import initFB from "../../firebase/initFireBase";
+import useAuth from "../../firebase/GlobalAuth/ContextProvider";
 
 function Login() {
+  // initFB();
+  const { user, loginWithGoogle ,error,loginwithEmail} = useAuth();
+  // alert(loginWithGoogle + "jn");
+  // alert(error+" hj");
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
   const [clickSubmit, setClickSubmit] = useState(false);
 
   const route = useRouter();
-
-  const LoginFormSubmit = async () => {
-    const response = await fetch("/api/user/login", {
-      method: "POST",
-      body: JSON.stringify({ _userEmail: userEmail, _userPass: userPass }),
-      headers: { "Content-type": "application/json" },
-    });
-    const data = await response.json();
-
-    console.log(data);
-    if (data.length) {
-      route.push("/");
-    } else {
-      setClickSubmit(true);
-    }
-  };
-
   return (
     <div className="h-screen w-screen overflow-hidden bg-zinc-100">
       <Head>
@@ -40,8 +31,9 @@ function Login() {
             width="300px"
             alt="A Person sitting"
           />
+
           <div className="pl-2 mt-10 text-sm flex ">
-            <div>Not a member yet?</div>
+            <div>{user} Not a member yet?</div>
             <div className="underline cursor-pointer pl-2">
               <Link href="/signup"> Create Account</Link>
             </div>
@@ -52,7 +44,7 @@ function Login() {
           <div className="border-b-2 w-72 pb-2 mt-9">
             <i className="fas fa-envelope fa-sm"></i>
             <input
-              type="text"
+              type="email"
               className="text-sm focus:outline-none pl-5 font-light"
               placeholder="Your Email"
               value={userEmail}
@@ -87,9 +79,18 @@ function Login() {
           <div>
             <button
               className="bg-blue-400 text-white h-30 w-36 mt-9 p-3 rounded-lg hover:bg-blue-600"
-              onClick={LoginFormSubmit}
+              onClick={loginwithEmail}
             >
               Log In
+            </button>
+          </div>
+
+          <div>
+            <button
+              className="bg-blue-400 text-white h-30 w-36 mt-9 p-3 rounded-lg hover:bg-blue-600" 
+              onClick={loginWithGoogle}
+            >
+              Log In With Google
             </button>
           </div>
         </div>

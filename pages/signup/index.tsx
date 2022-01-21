@@ -4,8 +4,12 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import initFB from "../../firebase/initFireBase";
 
 function Signup() {
+  initFB();
   const [userName, setUserName] = useState("");
   const [userPass, setUserPass] = useState("");
   const [userPass2, setUserPass2] = useState("");
@@ -14,28 +18,6 @@ function Signup() {
   const [passMatch, setPassMatch] = useState(true);
 
   const route = useRouter();
-
-  const SignUpFormSubmit = async () => {
-    if (userPass === userPass2 && termAccepted) {
-      setPassMatch(true);
-      const response = await fetch("/api/user/signup", {
-        method: "POST",
-        body: JSON.stringify({
-          user_name: userName,
-          user_pass: userPass,
-          user_email: userEmail,
-        }),
-        headers: { "Content-type": "application/json" },
-      });
-
-      const data = await response.json();
-      if (data) {
-        route.push("/login");
-      }
-    } else {
-      setPassMatch(false);
-    }
-  };
 
   return (
     <div className="h-screen w-screen overflow-hidden bg-zinc-100">
@@ -88,9 +70,10 @@ function Signup() {
               className="text-sm focus:outline-none pl-5 font-light"
               placeholder="Repeat Password"
               value={userPass2}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setUserPass2(e.target.value)
-              }
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setUserPass2(e.target.value);
+                if (userPass != userPass2) setPassMatch(false);
+              }}
             />
           </div>
           {passMatch ? (
@@ -129,7 +112,19 @@ function Signup() {
           <div>
             <button
               className="bg-blue-400 text-white h-30 w-40 mt-7 p-3 rounded-lg hover:bg-blue-600"
-              onClick={SignUpFormSubmit}
+              onClick={async () => {
+                const res = await firebase
+                  .auth()
+                  .createUserWithEmailAndPassword(userEmail, userPass)
+                  .then(() => {
+                    // alert(res);
+                    window.location.href = "/";
+                    console.log(res);
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
+              }}
             >
               Register
             </button>
