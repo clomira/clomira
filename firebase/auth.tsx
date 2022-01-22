@@ -8,7 +8,7 @@ const Authcontext = createContext({});
 
 
 function AuthProvider({ children }: any) {
-  initFB();
+  // initFB();
   const [user, setUser] = useState(null);
   useEffect(() => {
     return firebase.auth().onIdTokenChanged(async (user) => {

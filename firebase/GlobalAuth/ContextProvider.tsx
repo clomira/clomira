@@ -91,8 +91,8 @@ interface IArticle {
   error: string;
   loginWithGoogle: React.MouseEventHandler<HTMLButtonElement> | undefined;
   logout: React.MouseEventHandler<HTMLDivElement> | undefined;
-  loginwithEmail: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  signupwithEmail: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  loginwithEmail: any;
+  signupwithEmail: any;
 }
 
 const authcontext = createContext<IArticle>({});
@@ -108,7 +108,7 @@ export function AuthProvider(props: any) {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
         // The signed-in user info.
-        window.location.href= "/"
+        window.location.href = "/";
         const user = result.user;
         // setUser(user);
         console.log({ credential, token, user });
@@ -170,7 +170,7 @@ export function AuthProvider(props: any) {
 
 const useAuth = (): IArticle => {
   // alert(user);
-//   initFB();
+  //   initFB();
   return useContext(authcontext);
 };
 export default useAuth;

@@ -10,7 +10,7 @@ import useAuth from "../../firebase/GlobalAuth/ContextProvider";
 
 function Login() {
   // initFB();
-  const { user, loginWithGoogle ,error,loginwithEmail} = useAuth();
+  const { user, loginWithGoogle, error, signupwithEmail } = useAuth();
   // alert(loginWithGoogle + "jn");
   // alert(error+" hj");
   const [userEmail, setUserEmail] = useState("");
@@ -79,7 +79,9 @@ function Login() {
           <div>
             <button
               className="bg-blue-400 text-white h-30 w-36 mt-9 p-3 rounded-lg hover:bg-blue-600"
-              onClick={loginwithEmail}
+              onClick={() => {
+                signupwithEmail(userEmail, userPass);
+              }}
             >
               Log In
             </button>
@@ -87,7 +89,7 @@ function Login() {
 
           <div>
             <button
-              className="bg-blue-400 text-white h-30 w-36 mt-9 p-3 rounded-lg hover:bg-blue-600" 
+              className="bg-blue-400 text-white h-30 w-36 mt-9 p-3 rounded-lg hover:bg-blue-600"
               onClick={loginWithGoogle}
             >
               Log In With Google
