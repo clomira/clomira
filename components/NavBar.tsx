@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import useAuth from "../firebase/GlobalAuth/ContextProvider";
+import {SignOutButton} from "./Context/Credential"
 
 function NavBar() {
-  const { error, user, logout } = useAuth();
   return (
     <div className="sticky top-0 z-50">
       <div className="bg-white shadow">
@@ -46,7 +45,7 @@ function NavBar() {
               <Link href="/" passHref>
                 <div
                   className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600"
-                  onClick={logout}
+                  onClick={SignOutButton}
                 >
                   Sign Out
                 </div>

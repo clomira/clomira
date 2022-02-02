@@ -3,16 +3,8 @@ import React, { useState, ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
-// import firebase from "firebase/compat/app";
-// import "firebase/compat/auth";
-import initFB from "../../firebase/initFireBase";
-import useAuth from "../../firebase/GlobalAuth/ContextProvider";
-
+import { loginwithEmail,signInWithGoogle } from "../../components/Context/Credential";
 function Login() {
-  // initFB();
-  const { user, loginWithGoogle, error, signupwithEmail } = useAuth();
-  // alert(loginWithGoogle + "jn");
-  // alert(error+" hj");
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
   const [clickSubmit, setClickSubmit] = useState(false);
@@ -33,7 +25,7 @@ function Login() {
           />
 
           <div className="pl-2 mt-10 text-sm flex ">
-            <div>{user} Not a member yet?</div>
+            <div> Not a member yet?</div>
             <div className="underline cursor-pointer pl-2">
               <Link href="/signup"> Create Account</Link>
             </div>
@@ -80,7 +72,7 @@ function Login() {
             <button
               className="bg-blue-400 text-white h-30 w-36 mt-9 p-3 rounded-lg hover:bg-blue-600"
               onClick={() => {
-                signupwithEmail(userEmail, userPass);
+                loginwithEmail(userEmail, userPass);
               }}
             >
               Log In
@@ -90,7 +82,7 @@ function Login() {
           <div>
             <button
               className="bg-blue-400 text-white h-30 w-36 mt-9 p-3 rounded-lg hover:bg-blue-600"
-              onClick={loginWithGoogle}
+              onClick={signInWithGoogle}
             >
               Log In With Google
             </button>

@@ -4,12 +4,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import initFB from "../../firebase/initFireBase";
-
+import { signupwithEmail } from "../../components/Context/Credential";
 function Signup() {
-  initFB();
   const [userName, setUserName] = useState("");
   const [userPass, setUserPass] = useState("");
   const [userPass2, setUserPass2] = useState("");
@@ -76,9 +72,7 @@ function Signup() {
               }}
             />
           </div>
-          {passMatch ? (
-            ""
-          ) : (
+          {passMatch && (
             <div className="text-red-500 text-sm pt-1">
               Password doesn&apos;t match
             </div>
@@ -102,7 +96,7 @@ function Signup() {
               </div>
             </div>
           </div>
-          {termAccepted ? (
+          {termAccepted == "yes" ? (
             ""
           ) : (
             <div className="text-red-500 text-sm pt-1">
@@ -112,18 +106,18 @@ function Signup() {
           <div>
             <button
               className="bg-blue-400 text-white h-30 w-40 mt-7 p-3 rounded-lg hover:bg-blue-600"
-              onClick={async () => {
-                const res = await firebase
-                  .auth()
-                  .createUserWithEmailAndPassword(userEmail, userPass)
-                  .then(() => {
-                    // alert(res);
-                    window.location.href = "/";
-                    console.log(res);
-                  })
-                  .catch((error) => {
-                    console.error(error);
-                  });
+              disabled={termAccepted == "yes" && userPass === userPass2}
+              onClick={() => {
+                const validateEmail = (userEmail: any) => {
+                  return String(userEmail)
+                    .toLowerCase()
+                    .match(
+                      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    );
+                };
+                if (validateEmail(userEmail))
+                  signupwithEmail(userEmail, userPass);
+                else setPassMatch(true);
               }}
             >
               Register
