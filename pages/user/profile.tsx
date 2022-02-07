@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { protectedRoute } from "../../components/Context/ProtectedRoute";
 
 const Profile = () => {
   return (
@@ -55,4 +56,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default protectedRoute(Profile);

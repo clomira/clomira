@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { signupwithEmail } from "../../components/Context/Credential";
+import { publicRoute } from "../../components/Context/ProtectedRoute";
 function Signup() {
   const [userName, setUserName] = useState("");
   const [userPass, setUserPass] = useState("");
@@ -143,7 +144,7 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default publicRoute(Signup);
 
 Signup.getLayout = function PageLayout(page: ReactNode) {
   return <div>{page}</div>;

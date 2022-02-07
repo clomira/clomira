@@ -45,14 +45,14 @@ function NavBar() {
             </div>
             {user ? (
               <div className="hidden sm:flex sm:items-center">
-                <a href="/">
+                <Link href="/" passHref>
                   <div
                     className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600"
                     onClick={SignOutButton}
                   >
                     Sign Out
                   </div>
-                </a>
+                </Link>
                 <Link href="/user/profile" passHref>
                   <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
                     {" "}
