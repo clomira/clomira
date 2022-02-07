@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import {SignOutButton} from "./Context/Credential"
+import { SignOutButton } from "./Context/Credential";
+import { auth } from "../lib/firebase";
 
 function NavBar() {
+  const user = auth.currentUser;
   return (
     <div className="sticky top-0 z-50">
       <div className="bg-white shadow">
@@ -41,33 +43,37 @@ function NavBar() {
                 </div>
               </Link>
             </div>
-            <div className="hidden sm:flex sm:items-center">
-              <Link href="/" passHref>
-                <div
-                  className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600"
-                  onClick={SignOutButton}
-                >
-                  Sign Out
-                </div>
-              </Link>
-              <Link href="/login" passHref>
-                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
-                  LogIn
-                </div>
-              </Link>
-              <Link href="/signup" passHref>
-                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
-                  SignUp
-                </div>
-              </Link>
-
-              <Link href="/profile" passHref>
-                <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
-                  {" "}
-                  Profile
-                </div>
-              </Link>
-            </div>
+            {user ? (
+              <div className="hidden sm:flex sm:items-center">
+                <a href="/">
+                  <div
+                    className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600"
+                    onClick={SignOutButton}
+                  >
+                    Sign Out
+                  </div>
+                </a>
+                <Link href="/user/profile" passHref>
+                  <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
+                    {" "}
+                    Profile
+                  </div>
+                </Link>
+              </div>
+            ) : (
+              <div className="hidden sm:flex sm:items-center">
+                <Link href="/user/login" passHref>
+                  <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
+                    LogIn
+                  </div>
+                </Link>
+                <Link href="/user/signup" passHref>
+                  <div className="text-gray-800 ml-2 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 cursor-pointer hover:border-purple-600">
+                    SignUp
+                  </div>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

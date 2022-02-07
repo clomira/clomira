@@ -12,7 +12,7 @@ import {
 let value = { user: {}, username: "" };
 export const signInWithGoogle = async () => {
   signInWithPopup(auth, googleAuthProvider)
-    .then(function (result) {
+    .then(function(result) {
       window.location.href = "/";
     })
     .catch((err) => {
@@ -60,7 +60,10 @@ export const AuthProvider = ({ children }: any) => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setcuruser(user);
-      if (user && user.email != null) setusername(user.email);
+      if (user && user.email != null) {
+        console.log(user.email);
+        setusername(user.email);
+      }
       setLoading(false);
     });
   }, []);

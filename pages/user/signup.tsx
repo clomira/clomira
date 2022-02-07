@@ -105,7 +105,7 @@ function Signup() {
           )}
           <div>
             <button
-              className="bg-blue-400 text-white h-30 w-40 mt-7 p-3 rounded-lg hover:bg-blue-600"
+              className="bg-blue-400 text-white h-30 w-40 mt-7 p-3 rounded-lg cursor-pointer hover:bg-blue-600"
               disabled={termAccepted == "yes" && userPass === userPass2}
               onClick={() => {
                 const validateEmail = (userEmail: any) => {
@@ -134,7 +134,7 @@ function Signup() {
           <div className="pl-10 mt-10 text-sm flex">
             <div>Already a member?</div>
             <div className="underline cursor-pointer pl-2">
-              <Link href="/login"> Login</Link>
+              <Link href="/user/login"> Login</Link>
             </div>
           </div>
         </div>

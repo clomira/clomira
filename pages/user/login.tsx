@@ -3,7 +3,11 @@ import React, { useState, ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { loginwithEmail,signInWithGoogle } from "../../components/Context/Credential";
+import {
+  loginwithEmail,
+  signInWithGoogle,
+} from "../../components/Context/Credential";
+import { publicRoute } from "../../components/Context/ProtectedRoute";
 function Login() {
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
@@ -27,7 +31,7 @@ function Login() {
           <div className="pl-2 mt-10 text-sm flex ">
             <div> Not a member yet?</div>
             <div className="underline cursor-pointer pl-2">
-              <Link href="/signup"> Create Account</Link>
+              <Link href="/user/signup"> Create Account</Link>
             </div>
           </div>
         </div>
@@ -93,7 +97,7 @@ function Login() {
   );
 }
 
-export default Login;
+export default publicRoute(Login);
 
 Login.getLayout = function PageLayout(page: ReactNode) {
   return <div>{page}</div>;
