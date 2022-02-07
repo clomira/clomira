@@ -4,13 +4,13 @@ import "firebase/compat/firestore";
 import "firebase/compat/storage";
 
 const firebaseConfig = {
-  apiKey: process.env.FB_API_KEY,
-  authDomain: process.env.FB_AUTH_ADMIN,
-  projectId: process.env.FB_PROJ_ID,
-  storageBucket: process.env.FB_STORAGE_BUCKET,
-  messagingSenderId: process.env.FB_MESSAGING_SENDER_ID,
-  appId: process.env.FB_APP_ID,
-  measurementId: process.env.FB_MEASUREMENT_ID,
+  apiKey: String(process.env.FIREBASE_API_KEY),
+  authDomain: String(process.env.FIREBASE_AUTH_ADMIN),
+  projectId: String(process.env.FIREBASE_PROJ_ID),
+  storageBucket: String(process.env.FIREBASE_STORAGE_BUCKET),
+  messagingSenderId: String(process.env.FIREBASE_MESSAGING_SENDER_ID),
+  appId: String(process.env.FIREBASE_APP_ID),
+  measurementId: String(process.env.FIREBASE_MEASUREMENT_ID),
 };
 
 if (!firebase.apps.length) {
